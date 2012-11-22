@@ -1,0 +1,47 @@
+name:          number-streams
+version:       0.1.0.0
+license:       MIT
+license-file:  LICENSE
+author:        Niklas Hambüchen
+copyright:     Copyright: (c) 2012 Niklas Hambüchen
+maintainer:    Niklas Hambüchen <mail@nh2.me>
+category:      Numerical
+stability:     experimental
+homepage:      https://github.com/nh2/number-streams
+bug-reports:   https://github.com/nh2/number-streams/issues
+synopsis:      Calculating properties on streams of numbers, e.g. moving sums and averages
+description:   A library for calculating things about streams of numbers.
+               .
+               Contribute at
+               <https://github.com/nh2/number-streams>.
+
+build-type:    Simple
+cabal-version: >= 1.10
+
+
+library
+  default-language: Haskell2010
+  exposed-modules:
+      Data.List.StrictScans
+      Numeric.Streams
+  other-modules:
+      Numeric.Streams.Internal
+  build-depends:
+      base >= 4 && <= 5
+  ghc-options:
+    -Wall
+
+
+Test-Suite test-number-streams
+  type: exitcode-stdio-1.0
+  default-language: Haskell2010
+  main-is:
+    Test.hs
+  build-depends:
+      base >= 4 && <= 5
+    , criterion
+    , hspec
+    , HUnit
+    , QuickCheck >= 2.4.2
+  ghc-options:
+    -Wall -fwarn-unused-imports -rtsopts
